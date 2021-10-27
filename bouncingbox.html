@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #box {
+            height: 300px;
+            width: 300px;
+            background-color: yellow;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>\
+    <img id="box" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTARfOirjKPqpPksxRplMRbg95KRmrBhOWJKQ&usqp=CAU"
+    
+</body>
+
+</html>
+
+<script>
+    var box = document.getElementById("box")
+    var x = 7
+    var y = 5
+    var speedx = 16
+    var speedy = 5
+
+    setInterval(update, 50)
+    function update() {
+        box.style.left = x + "px"
+        box.style.top = y + "px"
+        x = x + speedx
+        y = y + speedy
+        
+        if (y < 0) {
+            speedy = speedy * -1
+        }
+
+        if (x < 0) {
+            speedx = speedx * -1
+        }
+        if (x > window.innerWidth -200)  {
+            speedx = speedx * -1
+        }
+
+        if (y > window.innerHeight-200){
+            speedy = speedy * -1
+        }
+
+    }
+
+
+
+</script>
