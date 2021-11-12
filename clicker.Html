@@ -2,34 +2,43 @@
 <html>
 
 <head>
-<style> 
-img{height: 350px;
-width: 500px; background-color:black;
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-body {color: darkmagenta;}
-p {color:blue;}
- 
-</style>
+  <style>
+    img {
+      background-color: black;
+      display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+      body {
+        color: darkmagenta;
+      }
+
+      p {
+        color: blue;
+      }
+  </style>
 
 
 </head>
 
 <body>
-    
-    <img id="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoeFmz_k_B5pDd5s-sz2IrDifAT9RkKPu83g&usqp=CAU">
- 
+
+  <img id="img"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAYsBoDB1V7slH7WhaK-D3_u2TMOAL0UChaQ&usqp=CAU">
+  <div id="score">
+    score
+  </div>
 
 </body>
 
 </html>
 <script>
-    document.getElementById("img").addEventListener("click",imgClick)
-function imgClick(){
-alert()
-}
+  document.getElementById("img").addEventListener("click", imgClick)
+  var score = 0
+  function imgClick() {
+    document.getElementById("score").innerText = score
+    score = score + 1
+  }
 </script>
