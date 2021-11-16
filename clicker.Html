@@ -21,12 +21,22 @@
   </style>
 
 
+
+
+
 </head>
+
+
 
 <body>
 
-  <img id="img"
-    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAYsBoDB1V7slH7WhaK-D3_u2TMOAL0UChaQ&usqp=CAU">
+
+
+
+  <img id="i
+  mg"
+    src="htt
+    ps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAYsBoDB1V7slH7WhaK-D3_u2TMOAL0UChaQ&usqp=CAU">
   <div id="score">
     score
   </div>
@@ -36,9 +46,22 @@
 </html>
 <script>
   document.getElementById("img").addEventListener("click", imgClick)
+  setInterval(autoupgrade,500)
   var score = 0
   function imgClick() {
-    document.getElementById("score").innerText = score
+    
     score = score + 1
+    document.getElementById("score").innerText = score
   }
+
+  function upgradeClick(){
+
+
+  }
+function autoupgrade(){
+
+score=score+1
+document.getElementById("score").innerText = score
+}
+
 </script>
