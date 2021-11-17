@@ -33,20 +33,20 @@
 
 
 
-  <img id="i
-  mg"
-    src="htt
-    ps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAYsBoDB1V7slH7WhaK-D3_u2TMOAL0UChaQ&usqp=CAU">
+  <img id="img"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAYsBoDB1V7slH7WhaK-D3_u2TMOAL0UChaQ&usqp=CAU">
   <div id="score">
     score
   </div>
+  <div id="upgradeButton">upgrade button thing</div>
 
 </body>
 
 </html>
 <script>
   document.getElementById("img").addEventListener("click", imgClick)
-  setInterval(autoupgrade,500)
+  document.getElementById("upgradeButton").addEventListener("click",upgradeClick)
+  
   var score = 0
   function imgClick() {
     
@@ -55,8 +55,7 @@
   }
 
   function upgradeClick(){
-
-
+setInterval(autoupgrade,500)
   }
 function autoupgrade(){
 
