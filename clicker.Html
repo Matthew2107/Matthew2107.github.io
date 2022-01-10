@@ -6,18 +6,18 @@
     img {
       background-color: black;
       display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
     }
 
-      body {
-        color: darkmagenta;
-      }
+    body {
+      color: darkmagenta;
+    }
 
-      p {
-        color: blue;
-      }
+    p {
+      color: blue;
+    }
   </style>
 
 
@@ -38,29 +38,40 @@
   <div id="score">
     score
   </div>
-  <div id="upgradeButton">upgrade button thing</div>
-
+  <div id="upgradeButton">upgrade</div>
+ <div id="Times2"> Times2</div>
 </body>
 
 </html>
 <script>
   document.getElementById("img").addEventListener("click", imgClick)
-  document.getElementById("upgradeButton").addEventListener("click",upgradeClick)
-  
+  document.getElementById("upgradeButton").addEventListener("click", upgradeClick)
+  document.getElementById("Times2").addEventListener("click", upgradeClick)
   var score = 0
   function imgClick() {
-    
+
     score = score + 1
     document.getElementById("score").innerText = score
   }
 
-  function upgradeClick(){
-setInterval(autoupgrade,500)
+  function upgradeClick() {
+
+
+    if (score >= 10) {
+      setInterval(autoupgrade, 500)
+    score = score -10  
+    }
+
   }
-function autoupgrade(){
+  function autoupgrade() {
 
-score=score+1
-document.getElementById("score").innerText = score
-}
-
+    score = score + 1
+    document.getElementById("score").innerText = score
+  }
+  function Times2 (){
+    if (score >= 10) {
+      setInterval(autoupgrade, 200)
+    score = score -10 
+    }
+  }
 </script>

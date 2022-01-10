@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<style>
+#racer1 {
+    width:300px;
+    position: absolute;
+    bottom: 150px;
+}
+
+
+#racer2 {
+width:300px;
+position: absolute;
+top:100px
+}
+
+
+body {
+  background-image: url("matthe.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 3000px ;
+  background-size: 3000px ;
+}
+
+
+
+
+
+
+
+</style>
+</head>
+
+<body>
+    <div>
+        <img id="racer1" src="matth.png">
+
+        <img id="racer2" src="5465.png">
+
+    </div>
+
+
+
+</body>
+
+
+</html>
+<script>
+var racer1=document.getElementById("racer1")
+var racer2=document.getElementById("racer2")
+
+document.addEventListener("keydown",keydownHandler)
+function keydownHandler(e){
+    console.log(e.key)
+}
+
+
+</script>
