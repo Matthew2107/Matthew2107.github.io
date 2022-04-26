@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+
+    <canvas id="canvas" width="1400" height="770">
+    </canvas>
+</body>
+
+</html>
+
+<script>
+    var speedx = [5, 3, 7, 12, 17, 24, 9, 2, 27]
+    var speedy = [7, 14, 2, 15, 7, 14, 23, 19, 5]
+    var width = [14, 18, 50, 38, 47, 15, 20, 25, 30]
+    var hight = [14, 18, 50, 38, 47, 15, 20, 25, 30]
+    var x = [5, 15, 30, 60, 90, 125, 150, 200, 275]
+    var y = [10, 20, 80, 15, 200, 150, 135, 40, 225]
+    var canvas = document.getElementById("canvas")
+    var ctx = canvas.getContext("2d")
+
+
+    setInterval(move, 50)
+
+    function move() {
+        ctx.clearRect(0, 0, 1400, 770)
+        for (var i = 0; i < 9; i++) {
+            x[i] = x[i] + speedx[i]
+            y[i] = y[i] + speedy[i]
+            ctx.fillRect(x[i], y[i], width[i], hight[i])
+
+            if (x[i] >= 1350) {
+                speedx[i] = -speedx[i]
+            }
+            if (x[i] <= 0) {
+                speedx[i] = -speedx[i]
+            }
+            if (y[i] >= 660) {
+                speedy[i] = -speedy[i]
+            }
+            if (y[i] <= 0) {
+                speedy[i] = -speedy[i]
+            }
+        }
+    }
+
+
+</script>

@@ -3,60 +3,116 @@
 <html>
 
 <head>
-<style>
-#racer1 {
-    width:300px;
-    position: absolute;
-    bottom: 150px;
-}
+    <style>
+        #racer1 {
+            width: 300px;
+            position: absolute;
+            bottom: 150px;
+        }
 
 
-#racer2 {
-width:300px;
-position: absolute;
-top:100px
-}
+        #racer2 {
+            width: 280px;
+            position: absolute;
+            top: 250px
+        }
 
+        p {
 
-body {
-  background-image: url("matthe.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 3000px ;
-  background-size: 3000px ;
-}
+            text-align: center;
 
+        }
 
+        p.soild {
+            border-style: soild;
+        }
 
+        #popup {
+            width: 400px;
+            height: 200px;
+            background-color: red;
+            left: 500px;
+            top: 50px;
+            position: absolute;
+            font-size: 45px;
+            text-align: center;
+            display: none;
+        }
 
-
-
-
-</style>
+        #background {
+            width: 100%;
+            position: absolute;
+            top: 35%;
+        }
+    </style>
 </head>
 
 <body>
     <div>
-        <img id="racer1" src="matth.png">
+        <img id="background" src="W.jpg">
 
-        <img id="racer2" src="5465.png">
+        <img id="racer2" src="gas monkey.png">
+
+        <img id="racer1" src="zoomie.png">
+
 
     </div>
+    <p id="Time" style="border-style: solid; border-color: blue">Time 0.00</p>
 
-
-
+    <div id="popup">
+        RACER1 IS
+        THE WINNER
+    </div>
+    <div id="popup">
+        RACER2 IS
+        THE WINNER
+    </div>
 </body>
 
 
 </html>
 <script>
-var racer1=document.getElementById("racer1")
-var racer2=document.getElementById("racer2")
+    var racer1 = document.getElementById("racer1")
+    var racer2 = document.getElementById("racer2")
+    var time = 0
 
-document.addEventListener("keydown",keydownHandler)
-function keydownHandler(e){
-    console.log(e.key)
-}
+    document.addEventListener("keydown", keydownHandler)
+    document.getElementById("popup").addEventListener("click", restart)
+    var x = 0
+    var y = 0
+    function keydownHandler(e) {
+        if (" " === e.key) {
+
+            racer1.style.left = x + "px"
+            x = x + 50
+        } if ("w" === e.key) {
+
+            racer2.style.left = y + "px"
+            y = y + 50
+        }
+        if (x >= 1250) {
+            document.getElementById("popup").style.display = "block"
+        }
+        if (y >= 1240) {
+            document.getElementById("popup").style.display = "block"
+        }
+
+    }
+    setInterval(seconds, 1)
+    function seconds() {
+        document.getElementById("Time").innerHTML = time.toFixed(2)
+
+        time = time + .01
+
+
+    }
+    function restart() {
+        racer2.style.left = 0 + "px"
+        y = 0
+        racer1.style.left = 0 + "px"
+        x = 0
+        display:none;
+    }
 
 
 </script>
