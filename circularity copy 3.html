@@ -40,7 +40,7 @@
     var ctx = canvas.getContext("2d")
     restart()
     function restart() {
-        for (var i = 0; i < 75; i++) {
+        for (var i = 0; i < 100; i++) {
 
             x.push(Math.random() * 1400)
             y.push(Math.random() * 300 - 300)
@@ -85,7 +85,7 @@
     function move() {
 
         ctx.clearRect(0, 0, 1900, 1000)
-        for (var i = 0; i < 75; i++) {
+        for (var i = 0; i < 100; i++) {
             var a = x[i] - mousex
             var b = y[i] - mousey
             var distance = Math.sqrt(a * a + b * b);
