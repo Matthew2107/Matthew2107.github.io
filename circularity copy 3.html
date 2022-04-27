@@ -5,6 +5,9 @@
     <style>
         body {
             background-color: black;
+            margin: 0%;
+            overflow: hidden;
+
         }
 
         canvas {
@@ -24,6 +27,7 @@
 <script>
     document.addEventListener("click", startOver)
     document.addEventListener('mousemove', mouse)
+    var numbercircles = 100
     var alive = true
     var mousex = -1000
     var mousey = -1000
@@ -38,16 +42,19 @@
     var y = []
     var canvas = document.getElementById("canvas")
     var ctx = canvas.getContext("2d")
+    
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
     restart()
     function restart() {
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < numbercircles; i++) {
 
-            x.push(Math.random() * 1400)
-            y.push(Math.random() * 300 - 300)
-            width.push(Math.random() * 50)
+            x.push(Math.random() * canvas.width)
+            y.push(Math.random() * -canvas.height - 70)
+            width.push(Math.random() * 45)
             speedx.push(Math.random() * 20-10)
             speedy.push(Math.random() * 6)
-            radius.push(Math.random() * 50)
+            radius.push((i+1)/2 +5)   //Math.random() * 50)
 
             color.push("hsl(" + Math.random() * 360 + ",100%,50%)")
 
@@ -85,7 +92,7 @@
     function move() {
 
         ctx.clearRect(0, 0, 1900, 1000)
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < numbercircles; i++) {
             var a = x[i] - mousex
             var b = y[i] - mousey
             var distance = Math.sqrt(a * a + b * b);
@@ -93,6 +100,7 @@
                 if (radius[i] <= mouseRaduis) {
                     mouseRaduis++
                     score = score + 1
+                    numbercircles = numbercircles - 1
                     x.splice(i, 1)
                     y.splice(i, 1)
                     width.splice(i, 1)
@@ -111,19 +119,19 @@
             ctx.beginPath()
             ctx.arc(x[i], y[i], radius[i], 0, 6.28)
             ctx.fill()
-            if (x[i] > 1400) {
+            if (x[i] > canvas.width) {
                 //speedx[i] = -speedx[i]
-                x[i] = Math.random() * 1400
+                x[i] = Math.random() * canvas.width
                 y[i] = -100
             }
             if (x[i] <= 0) {
                 //speedx[i] = -speedx[i]
-                x[i] = Math.random() * 1400
+                x[i] = Math.random() * canvas.width
                 y[i] = -100
             }
-            if (y[i] >= 800) {
+            if (y[i] >= canvas.height) {
                 y[i] = -100
-                x[i] = Math.random() * 1400
+                x[i] = Math.random() * canvas.width
                 // speedy[i] = -speedy[i]
             }
             // if (y[i] <= 0) {
@@ -138,6 +146,12 @@
             ctx.fillStyle = "White"
             ctx.font = "100px Arial";
             ctx.fillText("you dead", 500, 120)
+            ctx.fillText(score + "points", 500, 400)
+        }
+        if (numbercircles === 0){
+            ctx.fillStyle = "White"
+            ctx.font = "100px Arial";
+            ctx.fillText("you win", 500, 120)
             ctx.fillText(score + "points", 500, 400)
         }
     }
